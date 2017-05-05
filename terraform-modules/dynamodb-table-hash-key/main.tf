@@ -12,10 +12,17 @@ terraform {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# CREATE THE S3 BUCKET
+# CREATE THE DYNAMODB TABLE
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "aws_s3_bucket" "main" {
-  bucket = "${var.bucket_name_prefix}${var.aws_region}.${var.serverless_service_name}"
-  acl    = "private"
+resource "aws_dynamodb_table" "main" {
+  name = "${var.table_name}"
+  read_capacity  = "${var.read_capacity}"
+  write_capacity = "${var.write_capacity}"
+  hash_key = "${var.hash_key_attribute_name}"
+
+  attribute {
+    name = "${var.hash_key_attribute_name}"
+    type = "${var.hash_key_attribute_type}"
+  }
 }

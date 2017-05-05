@@ -1,7 +1,11 @@
 # Use Terragrunt to invoke a Terraform module
 terragrunt = {
+  include {
+    path = "${find_in_parent_folders()}"
+  }
+
   terraform {
-    source = "../terraform-modules/s3-bucket"
+    source = "../../../terraform-modules/s3-bucket"
   }
 }
 
