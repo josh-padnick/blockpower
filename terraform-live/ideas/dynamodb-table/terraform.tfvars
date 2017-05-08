@@ -12,5 +12,5 @@ terragrunt = {
 aws_region = "us-west-2"
 aws_account_id = "124185122189"
 table_name = "ideas"
-hash_key_attribute_name = "Id"
+hash_key_attribute_name = "id"
 hash_key_attribute_type = "S"
